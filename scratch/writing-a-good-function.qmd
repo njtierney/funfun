@@ -1,0 +1,26 @@
+
+# How to write a good function
+
+Your function must remove some sense of complexity from your workflow.
+This removal is often referred to as "abstracting away", or "abstracting
+along the right axis".
+
+For your function to be good, it has to remove the *right amount of
+complexity*,\_ so that you can reason with the function, and not have
+additional complexity to deal with. This also means you need to give
+your function a good name that describes what it does in its context. If
+your function is called something that is hard to understand outside of
+a context, you have introduced complexity, and that is overall a bad
+thing.
+
+# Types and "predictability"
+
+There's something to be said for the fact that knowing what type of thing a function will produce is useful:
+
+1. modelling: a model object
+2. data cleaning: a data frame
+3. summarising: a smaller data frame or a vector or number
+
+As Hadley says in his talk: https://www.youtube.com/watch?v=Qne86lxjgtg
+It's useful to think about what the type is that goes in and comes out
+e.g., - you can get mixed up if you assume that dplyr will work with data but not with vectors

@@ -1,0 +1,6 @@
+
+# Morgue
+
+-   The story of the LISP programmer vs the C++ programmer
+-   The point is that at some point the limiting factor becomes how you
+    express yourself, and not the speed of the code.

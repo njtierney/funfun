@@ -1,0 +1,12 @@
+# good process
+
+Discuss a process for writing and using functions
+
+-   Each function goes into an R/ folder
+-   Write a script that sources the R/ folder
+-   The script then does all these steps
+-   Use keyboard shortcuts like fnmate
+-   if your work takes a long time to run...consider tools like
+    `targets`
+    -   you've already done the work of writing functions - targets
+        likes that

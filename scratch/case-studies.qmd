@@ -1,0 +1,48 @@
+# Case studies
+
+Let's talk about these two ideas with two case studies
+
+1.  Functions for plots
+2.  Functions for data cleaning
+
+
+-   the myth of "I'll only need to do this once"
+-   The myth of "There's not enough time to write functions"
+-   copy-pasting code or having a "cheat sheet of code to help do
+    things" is an activity that I do not advocate for. The reason is
+    that these cheat sheets should be written as functions, as things
+    that encapsulate. If you are copying and pasting all the time, then
+    all you are doing is spreading around insanity. You are accumulating
+    technical debt that comes with crushing interest rates: your time,
+    and your energy.
+
+
+-   Make sure to address the general problem that functions solve - only
+    needing to make changes in one place, naming functions helps
+    describe tasks, makes your code (potentially) easier to understand.
+
+-   You can absolutely start writing out code first and then functions
+    later
+
+-   But you can also absolutely start writing functions first -
+    introduce `fnmate`
+
+List out the common cases when a function can be a nice idea - e.g., you
+specify some other function all the time with set parameters. - Such as
+`mean(x, na.rm = TRUE)` can be: `mean_complete(x)`
+
+
+-   Ideas on how many function arguments a function should have?
+    -   Generally fewer arguments
+    -   Many arguments is a code smell, but it is sufficient and not
+        necessary for a bad function
+    -   A good function can still have many arguments, and a bad
+        function can have a few arguments
+-   Spend as much time as you can in function land
+-   Writing out scripts is a fine way to do things...until it isn't
+
+
+If your function does many things to a data frame, consider writing a
+small function that operates on a vector, and then another function that
+does that process multiple times. - use this to springboard into using
+`purrr::map` / `apply` and co?

@@ -1,0 +1,78 @@
+# outline
+
+I want to discuss basically five topics today:
+
+# Function fundamentals
+
+The basics of what a function is, and the typical motivations for using them DRY, etc
+
+# What functions do well
+
+Moving on to the motivations for what functions do well - emphasise actions (prior art hadley) - and how you can write bad functions that don't emphasise or name the actions
+
+# Good practices when writing functions
+
+moving on to code smells and other practices you can use in your coding (prior art Jenny)
+
+-   Can you guess what the function does by its name and inputs?
+
+# Implementing this in your own work
+
+Model how you do this part of your work. How do you move from writing code to writing functions. Writing functions doesn't have to be this "sometimes" activity - it should be part of a healthy data analysis. To do this I want to model this behaviour by walking through a data analysis, and demonstrating writing functions, and also special tools for creating, and understanding functions (fnmate, browser (also debugonce and recover))
+
+-   Other ideas to demonstrate in this demo
+
+    -   Maybe I want to simulate restarting R and coming back to it
+
+        -   Ah man, I don't want to re-run this data analysis now.
+
+# Tools to grow
+
+Finally points for growth - how do you get better at writing functions in your own life? some ideas: read other people's code! use things like targets! peer review your code with colleagues. Tell a story about how I was taught debugging when I first started programming and I just did not understand the reason why I would care. The reason it turns out - is that I didn't yet know about the idea of interactive vs non-interactive, or rather - the practitioner-programmer spectrum. And I guess that this is summarised by a nice slide from Hadley (https://www.youtube.com/watch?v=Qne86lxjgtg) - "you hear your code scream" vs "things break and people scream at you".
+
+Hadley talks about this idea of "code is a conversation" - when things break, or don't work, if you're working in this script-land, then you know when this breaks, and you might be able to jump back into things.
+
+But if you're in programmer land, there's a wall between you and your code...sometimes.
+
+Summarise by talking about how we slide from the user \<--\> developer seamlessly. This is actually what R is designed to do!:
+
+![](images/clipboard-2863518647.png)
+
+# other functional things
+
+-   side effects?
+
+-   
+
+
+# And what if none of this is new to you in the talk?
+
+-   Here are some little tricks
+
+    -   options(error = browser)
+
+    -   options(error = recover)
+
+    -   (turn off with)
+
+    -   options(error = NULL)
+
+-   Other essential shortcuts/tools for navigating function space
+
+    -   Cmd + click - jump to function definition
+
+    -   Ctrl + . - jump to file/function
+
+-   Essential tools for creating new functions
+
+    -   fnmate
+
+-   
+
+Jacob Collier
+
+-   I think when you are in a creative process
+
+-   When you get a taste of being in a creative process, being present in that feeling, being in an idea - there is no better feeling than that. So what am I going to chase besides that? Nothing feels better than that? Nothing feels better than that. Being in the middle of a tornado of presense of your idea. That feeling of "I think this might work"
+
+-   ...Being in a creative process, being present in that feeling, being in an idea - there is no better feeling than that...Nothing feels better than that. Being in the middle of a tornado of presence of your idea. That feeling of "I think this might work".

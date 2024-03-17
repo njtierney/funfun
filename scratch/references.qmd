@@ -1,0 +1,16 @@
+
+# references
+
+-   https://stat545.com/functions-part1.html
+-   https://wiki.c2.com/?TelescopeRule
+-   https://www.youtube.com/watch?v=J8qbRYa4430
+-   https://zealous-wiles-e22e83.netlify.app/talk/funwithfunctions/
+-   https://web.archive.org/web/20201216043719/http://coding.derkeiler.com/Archive/Lisp/comp.lang.lisp/2006-04/msg01644.html
+-   <https://r4ds.had.co.nz/functions.html>
+-   <https://www.stat.auckland.ac.nz/~ihaka/downloads/lexical.pdf>
+-   <https://adv-r.hadley.nz/functionals.html>
+-   <https://en.wikipedia.org/wiki/Inner-platform_effect>
+-   <https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule>
+-   <https://twobithistory.org/2018/10/14/lisp.html>
+-   <https://www.youtube.com/watch?v=rz3_FDVt9eg>
+-   <https://www.youtube.com/watch?v=Qne86lxjgtg>

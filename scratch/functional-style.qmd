@@ -1,0 +1,12 @@
+# functional style
+
+From Hadley:
+
+> It’s hard to describe exactly what a functional *style* is, but
+  generally I think it means decomposing a **big problem into smaller pieces**,
+  then solving **each** piece with a function or combination of
+  functions. When using a functional style, you strive to decompose
+  components of the problem into isolated functions that operate
+  independently. Each function taken by itself is simple and
+  straightforward to understand; complexity is handled by composing
+  functions in various ways.

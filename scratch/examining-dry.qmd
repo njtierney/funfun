@@ -1,0 +1,31 @@
+# Examining DRY
+
+"If you copy and paste the same lines of code three times - you should write a function".
+
+Look, it's not that DRY is wrong - I think it is very much correct. You get loads of benefits to thinking of things as avoiding repition. You only need to make changes in one place.
+
+I think that there is kind of this "build up" to writing a function. It might look something like this:
+
+I'm going to need to do this thing 100 times, let's make sure it works as a script first
+
+OK now that I know it works, let's work out which parts can be functions
+
+Let's check that these functions all work on one thing
+
+it works once
+
+Separate out the parts of this thing into smaller components
+
+Check it works
+
+Put it in a function
+
+The function doesn't work?
+
+Ah, I haven't removed the hard-coded variables in the function
+
+Now the function works.
+
+And it's not that this process is bad. It is good. But it can be inefficient. It could be faster.
+
+There are ways to think about these problems that allow you to work at a higher level, and solve problems faster.

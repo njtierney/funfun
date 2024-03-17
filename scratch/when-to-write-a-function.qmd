@@ -1,0 +1,25 @@
+# When to write a function
+
+## The goals of functions
+
+I think functions at their best do three things:
+
+1. They manage complexity
+2. They can be individually reasoned with
+3. They express their intent
+
+Functions are tools to help manage complexity. If you don't experience complexity, a function might not be needed.
+
+## When to write a function
+
+If you're not sure if you should write a function, try asking two
+questions:
+
+1.  "Is there complexity I don't need to remember every time?"
+2.  "Is there an idea that I want to express or evoke?"
+
+If the answer is yes to either of these, then you should write a
+function.
+
+-   A rule for writing functions: when it is hard to manage the
+    complexity of the analysis

@@ -4,7 +4,7 @@
 
 I think the highest value skillset in statistical programming is knowing how to write good functions. Functions are often taught as a tool to avoid repetition using the mnemonic DRY: Don't Repeat Yourself. Whilst DRY is both true and real, I think functions are at their best when they encapsulate expression and are easy to reason with. That is, DRY is sufficient, but not necessary. Writing good functions is more than esoteric aesthetics. We need to be able to reason with our code in statistics. We often don't have the capacity to write tests to show our code is "correct". Instead, we need to rely on our ability to reason with, trust, and verify that the code works as it should. I believe writing good functions that encapsulate expressions and are able to be reasoned with are how we can ensure our code, and therefore our methods, and our analyses, work as they should. In this talk I will discuss some practical ideas on writing a good function, how to identify bad ones, and how to move between the two states. 
 
-# Slide available [here](https://talks.njtierney.com/ua2024)
+# Slide available [here](https://talks.njtierney.com/funfun)
 
 # Take home messages 
 

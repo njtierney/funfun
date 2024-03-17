@@ -1,0 +1,67 @@
+# Saras notes
+
+But you might not be repeating code - you might think that you are just
+doing this once, so why bother?
+
+A process for chunk-ifying this code
+
+Reason with your code
+
+-   You should be able to individually reason with your functions
+
+    -   you can read the name of a function and have an idea of what it
+        does, and what it outputs
+
+    -   you can run the function and that gives you
+
+Functions serving someone who doesn't have to repeat code
+
+-   Go back to understanding what task is achieved by what code
+
+It's not that it's about you repeating this code all the time in many
+places- but chances are you are going to revisit this code more than
+once, and it's about making it easier to revisit and understand the key
+tasks that you were doing.
+
+re-using the bones
+
+-   you might want to repeat stuff later
+
+-   and finding
+
+Functions are about organising some chaos
+
+It's like throwing your clothes into a giant box
+
+if you organise your wardrobe then it's easier to find a shirt
+
+Something around the idea of interactive nature of a data analysis
+
+-   if you're doing heaps of data analysis steps and having memory pile
+    up - these are things that can be managed by functions
+
+the climbing analogy
+
+-   Breaking down a huge journey into small steps
+
+    -   e.g., the multi-day big wall climb of the nose/dawn wall
+
+debug/browser
+
+-   choose either debug or browser to explain
+
+motivating/understanding functions
+
+-   all the things you do in R are functions
+
+    -   +, mutate, plot
+
+Writing your first function
+
+How much code to put into a function
+
+-   how much to abstract out?
+
+-   functions within functions?
+
+-   

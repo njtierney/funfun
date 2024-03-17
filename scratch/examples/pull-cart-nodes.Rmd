@@ -1,0 +1,78 @@
+---
+---
+
+```{r}
+
+# example code:
+# https://github.com/njtierney/njt_bmj_md/blob/master/njt_bmj_md.Rmd#L232-L264
+
+# fit the CART model using rpart
+library(rpart)
+miss_perc <- rowMeans(is.na(airquality))
+airquality_miss <- cbind(miss_perc, airquality)
+cart.fit <- 
+  rpart(miss_perc ~ Ozone + Solar.R + Wind + Temp + Month + Day,
+        data = airquality_miss, 
+        na.action = na.rpart, 
+        method = "anova")
+```
+
+```{r}
+# inline coding...
+library(magrittr)
+node1 <- cart.fit$frame[1,5] %>% round(2)*100
+
+node2 <- cart.fit$frame[2,5] %>% round(2)*100
+
+node3 <- cart.fit$frame[3,5] %>% round(2)*100
+
+node4 <- cart.fit$frame[4,5] %>% round(2)*100
+
+node5 <- cart.fit$frame[5,5] %>% round(2)*100
+
+node6 <- cart.fit$frame[6,5] %>% round(2)*100
+
+node7 <- cart.fit$frame[7,5] %>% round(2)*100
+
+node8 <- cart.fit$frame[8,5] %>% round(2)*100
+
+node9 <- cart.fit$frame[9,5] %>% round(2)*100
+
+```
+
+- Node 1 had `r node1`% missing data
+- Node 2 had `r node2`% missing data
+- Node 3 had `r node3`% missing data
+- Node 4 had `r node3`% missing data
+- Node 5 had `r node5`% missing data
+- Node 6 had `r node6`% missing data
+- Node 7 had `r node7`% missing data
+- Node 8 had `r node8`% missing data
+- Node 8 had `r node9`% missing data
+
+```{r}
+node <- function(cart_fit, node_number){
+  cart_fit$frame[node_number, 5]
+}
+
+node(cart.fit, 1)
+node(cart.fit, 2)
+node(cart.fit, 3)
+
+cart_node <- function(node_number) node(cart.fit, node_number)
+
+cart_node(1)
+cart_node(2)
+cart_node(3)
+
+cart_node(3) %>% round(2) * 100
+library(scales)
+cart_node(3) %>% percent()
+
+node_pct <- function(node_number) cart_node(node_number) %>% scales::percent() 
+
+node_pct(1)
+node_pct(2)
+node_pct(3)
+```
+
