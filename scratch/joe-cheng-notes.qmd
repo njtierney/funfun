@@ -1,0 +1,47 @@
+# Joe Cheng: You have to reason about it
+
+From https://www.youtube.com/watch?v=J8qbRYa4430
+
+> There's a level of "I got it to work"
+> And
+> "It works, and I can reason about it"
+
+> When we work on software that is non-trivial...the main challenge in software engineering is how do you take all this complexity and break it down into smaller pieces, each of with you can reason about, each of which you can hold in your head, each of which you can look at and be like "yup, I can fully ingest this entire function definition, I can read it line by line and prove to myself this is definitely correct, IF the functions its calling do'nt ahve bugs, AND if it's called in the right way...then the result will be correct.
+
+> So software engineering... is a lot about this:
+> how do you break up inherently complicated things that we are trying to do into small pieces that are individually easy to reason about, and that's half the battle right there.
+> The other hald of the battle is how do we combine them in ways that acan be reliable and also easy to reason about
+
+So it's these two pieces
+> Small pieces, reliably composed
+
+> [this is important in data science]...you're at the point where you're at the end of a data analysis, and you don't remember where the variables came from, how are these data frames different?
+> So you need to go back and (hopefully) start breaking it into functions, or somehow dividing it into smaller pieces that each focus on a thing, and then you join those pieces together in your overall script.
+
+
+
+# Some thoughts of mine:
+
+The idea of a small number of operations you can hold in your head:
+
+- Working memory = 7 +/- 2 (5-9)
+
+["The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information"](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two)
+
+We can briefly memorize longer numbers, 1800 131 086, and these can be easier if there's patterns, like, 1800 111 222, or 1800 212 121.
+
+So it's not in raw bits of information, but in chunks.
+
+
+From wikipedia:
+
+> A chunk is the largest meaningful unit in the presented material that the person recognizes...what counts as a chunk depends on the knowledge of the person... For instance, a word is a single chunk for a speaker of the language but is many chunks for someone who is totally unfamiliar with the language and sees the word as a collection of phonetic segments.
+
+[chunking](https://en.wikipedia.org/wiki/Chunking_(psychology))
+
+> In cognitive psychology, chunking is a process by which small individual pieces of a set of information are bound together to create a meaningful whole later on in memory
+
+You can either write code that obviously contains no errors, or contains no obvious errors:
+
+- because I understand every part
+- But the other one is I can't see the errors

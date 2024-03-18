@@ -1,0 +1,7 @@
+# Let's make the worst function in the world
+
+What would you put in the worst function you could make?
+And what can that teach us about what is good?
+
+
+Global variables: It hurts your ability to hold the entire function in your head
