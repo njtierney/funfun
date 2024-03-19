@@ -4,3 +4,17 @@
 -   The story of the LISP programmer vs the C++ programmer
 -   The point is that at some point the limiting factor becomes how you
     express yourself, and not the speed of the code.
+
+Function Fundamentals
+
+The basics of what a function is, and the typical motivations for using them DRY, etc
+
+Moving on to the motivations for what functions do well - emphasise actions (prior art hadley) - and how you can write bad functions that don't emphasise or name the actions
+
+The basics of what a function is, and the typical motivations for using them - DRY etc.
+
+But the point here isn't so much about avoiding repitition, it's about expression
+
+That's what I was chasing earlier - it wasn't about avoiding repetition, it was about my expression being cut off (maybe quote Jacob Collier?)
+
+conclusion: Functions are about managing complexity

@@ -52,12 +52,16 @@ Moving on to the motivations for what functions do well - emphasise actions (pri
 
             -   Ah man, I don't want to re-run this data analysis now.
 
-# Good and bad functions
+# Good and Bad Functions (maybe ditch this)
 
 1.  Moving on to code smells and other practices you can use in your coding (prior art Jenny)
 
     1.  conclusion: here are some general tips on writing good functions
     2.  game: good function / bad function?
+
+important ideas: - bad names vs good names - bad arguments vs good arguments - body code that's too terse - If it fails it does it loudly vs quietly
+
+Creative process - taste exceeds ability - creating things for you vs creating things for others
 
 moving on to code smells and other practices you can use in your coding (prior art Jenny)
 

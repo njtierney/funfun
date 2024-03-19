@@ -6,7 +6,7 @@ From https://www.youtube.com/watch?v=J8qbRYa4430
 > And
 > "It works, and I can reason about it"
 
-> When we work on software that is non-trivial...the main challenge in software engineering is how do you take all this complexity and break it down into smaller pieces, each of with you can reason about, each of which you can hold in your head, each of which you can look at and be like "yup, I can fully ingest this entire function definition, I can read it line by line and prove to myself this is definitely correct, IF the functions its calling do'nt ahve bugs, AND if it's called in the right way...then the result will be correct.
+> When we work on software that is non-trivial...the main challenge in software engineering is how do you take all this complexity and break it down into smaller pieces, each of with you can reason about, each of which you can hold in your head, each of which you can look at and be like "yup, I can fully ingest this entire function definition, I can read it line by line and prove to myself this is definitely correct, IF the functions its calling do'nt have bugs, AND if it's called in the right way...then the result will be correct.
 
 > So software engineering... is a lot about this:
 > how do you break up inherently complicated things that we are trying to do into small pieces that are individually easy to reason about, and that's half the battle right there.
