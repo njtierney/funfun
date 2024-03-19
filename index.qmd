@@ -81,7 +81,6 @@ nipa <- list(red = "#c03018",
 
 ```
 
-
 # Audience
 
 1.  Someone who has never written a function
@@ -90,24 +89,23 @@ nipa <- list(red = "#c03018",
 4.  The regular function user
 5.  Various members of the R Core Team
 
-:::{.notes}
-
-I want to start by saying that I want to cover a range of different audiences in this talk. I want this talk to be helpful for someone who has never written a function, through to someone who has written a couple of functions - the person who is suspicious of functions and doesn't really get the point - the regular function user, and also, I hope I can convey something useful to the various members of the R Core team and R developers. 
+::: notes
+I want to start by saying that I want to cover a range of different audiences in this talk. I want this talk to be helpful for someone who has never written a function, through to someone who has written a couple of functions - the person who is suspicious of functions and doesn't really get the point - the regular function user, and also, I hope I can convey something useful to the various members of the R Core team and R developers.
 
 note: Make this a line graph or something?
 
-    1.  Thomas Lumley
-    2.  Simon Urbanek
-    3.  Paul Murrell
+```         
+1.  Thomas Lumley
+2.  Simon Urbanek
+3.  Paul Murrell
+```
 :::
 
 # Outline
 
-1.  Motivation: Why do I care?
+1.  Motivation: Why do I care about functions?
 2.  Function Fundamentals
 3.  Functions in Practice
-4.  Good and Bad Functions
-5.  Developing Your Craft
 
 ## list_prior_art()
 
@@ -115,7 +113,7 @@ note: Make this a line graph or something?
 The thing that I want to communicate here is "I've learnt a lot from others - and in some ways this talk is just me remixing the important messages that others have already spent a good deal more time doing". So I want to start by firstly acknowledging five people whose talks and work have helped me understand functions in a deeper way to become a better programmer, and I want to note a key thing that they helped me understand.
 :::
 
-:::{.bigger}
+::: bigger
 ```         
 list(
   prior_art("hadley"),
@@ -127,13 +125,10 @@ list(
 ```
 :::
 
-
 <!-- ![](images/clipboard-4268136480.png) -->
 
-
 ::: notes
-Key points
-I wanted to be able to understand and communicate what I was doing
+Key points I wanted to be able to understand and communicate what I was doing
 
 I was Frustrated by not being able express those ideas
 
@@ -338,32 +333,9 @@ celcius_to_farenheit(0)
 celcius_to_farenheit(25)
 ```
 
-. . .
-
-```{r}
-odd_number <- function(x){
-  (x %% 2) == 0
-}
-odd_number(2)
-odd_number(7)
-```
-
 ::: notes
 It doesn't showcase the power It makes it seem trivial
 :::
-
-## Hang on what is `%%`?
-
-The modulo operator
-
-> `%%` indicates x mod y ("x modulo y"), i.e., computes the 'remainder' 
-
-```{r}
-4 %% 2
-4 %% 1
-4 %% 3
-```
-
 
 ## Teaching functions?
 
@@ -376,20 +348,9 @@ celcius_to_farenheit(0)
 celcius_to_farenheit(25)
 ```
 
-. . .
-
-```{r}
-odd_number <- function(x){
-  (x %% 2) == 0
-}
-odd_number(2)
-odd_number(7)
-```
-
 ::: notes
 It doesn't showcase the power It makes it seem trivial
 :::
-
 
 ## DRY: Don't Repeat Yourself
 
@@ -420,7 +381,7 @@ result_solar_wind <- t.test(is_different_miss, is_different_complete)
 You've only written this out twice But you'll revisit it more than once You've got to manually parse what is different The structure is the same It's like a game of spot the difference idea: show images where two Where is the difference? - THERE IS NO DIFFERENCE - YOU HAVE WASTED YOUR TIME
 :::
 
-## DRY: Don't **re-read** Yourself*
+## DRY: Don't **re-read** Yourself\*
 
 > If you **re-read** your code 3 times, write a function
 
@@ -444,17 +405,21 @@ result_solar_wind <- t.test(is_different_miss, is_different_complete)
 ```
 
 ::: aside
-*naming credit: Miles McBain
+\*naming credit: Miles McBain
 :::
 
 ## Process of writing a function
 
-- Functions are tools for **managing complexity**
+Functions are tools for **managing complexity**
+
+. . .
+
+So, **what complexity** do we want to manage
 
 . . .
 
 ```{r}
-#| code-line-numbers: "|1|2|3|6"
+#| code-line-numbers: "|1|2|3"
 is_different <- airquality$Temp
 when_missing_index <- which(is.na(airquality$Ozone))
 when_complete_index <- which(!is.na(airquality$Ozone))
@@ -462,6 +427,10 @@ is_different_miss <- is_different[when_missing_index]
 is_different_complete <- is_different[when_complete_index]
 result_ozone_temp <- t.test(is_different_miss, is_different_complete)
 ```
+
+. . .
+
+Start with the **bones**
 
 . . .
 
@@ -536,18 +505,17 @@ misstest <- function(is_different, when_missing){
   when_complete_index <- which(!is.na(when_missing))
   is_different_miss <- is_different[when_missing_index]
   is_different_complete <- is_different[when_complete_index]
-  # result_ozone_temp <- t.test(is_different_miss, is_different_complete)
-  t.test(is_different_miss, is_different_complete)
+  result_ozone_temp <- t.test(is_different_miss, is_different_complete)
+  result_ozone_temp
 }
 ```
-
 
 ## Writing functions is **writing**
 
 Cleaning up **old lettuce** (removing unused comments)
 
 ```{r}
-#| code-line-numbers: "2,3,8"
+#| code-line-numbers: "2,3"
 misstest <- function(is_different, when_missing){
   # is_different <- airquality$Temp
   # when_missing_index <- which(is.na(airquality$Ozone))
@@ -555,8 +523,8 @@ misstest <- function(is_different, when_missing){
   when_complete_index <- which(!is.na(when_missing))
   is_different_miss <- is_different[when_missing_index]
   is_different_complete <- is_different[when_complete_index]
-  # result_ozone_temp <- t.test(is_different_miss, is_different_complete)
-  t.test(is_different_miss, is_different_complete)
+  result_ozone_temp <- t.test(is_different_miss, is_different_complete)
+  result_ozone_temp
 }
 ```
 
@@ -570,47 +538,53 @@ misstest <- function(is_different, when_missing){
   when_complete_index <- which(!is.na(when_missing))
   is_different_miss <- is_different[when_missing_index]
   is_different_complete <- is_different[when_complete_index]
-  t.test(is_different_miss, is_different_complete)
+  result_ozone_temp <- t.test(is_different_miss, is_different_complete)
+  result_ozone_temp
 }
 ```
 
 ## Writing functions is **writing**
 
+**Name** the function something that **evokes** the **action**
+
 ```{r}
-#| code-line-numbers: "1|2|3|4|5"
+#| code-line-numbers: "1"
 missingness_impact <- function(is_different, when_missing){
   when_missing_index <- which(is.na(when_missing))
   when_complete_index <- which(!is.na(when_missing))
   is_different_miss <- is_different[when_missing_index]
   is_different_complete <- is_different[when_complete_index]
-  t.test(is_different_miss, is_different_complete)
+  result_ozone_temp <- t.test(is_different_miss, is_different_complete)
+  result_ozone_temp
 }
 ```
 
-. . . 
+## Writing functions is **writing**
 
-- Copy text into body
-- Come up with some good names
-- Consider verbs for names
-- Writing functions is iterative, Just like regular writing
+A **process** for writing a function
 
-# DRY vs Expression
+-   **Identify** complexity to manage
+-   **Copy** text into body
+-   Come up with some good **names** (consider verbs?)
+-   Writing functions is **iterative**, Just like **regular writing**
 
-DRY:
+# DRY is secondary to **expression**
 
-- Avoiding copy/paste avoids **easy errors**!
-- Make changes in one place - **awesome**!
+DRY is a useful idea!
 
-. . . 
+-   Avoiding copy/paste avoids **easy errors**!
+-   Make changes in one place - **awesome**!
 
-Expression:
+. . .
 
-- **Explain and express ideas**
-- **Manage complexity**
+But, expression is the more powerful idea:
 
-## Our own understanding
+-   **Explain and express ideas**
+-   **Manage complexity**
 
-> [W]e want to establish the idea that a computer language is not just a way of getting a computer to perform operations but rather that it is a novel formal medium for expressing ideas about methodology. Thus, **programs must be written for people to read, and only incidentally for machines to execute**.
+## Code is for people
+
+> \[W\]e want to establish the idea that a computer language is not just a way of getting a computer to perform operations but rather that it is a novel formal medium for expressing ideas about methodology. Thus, **programs must be written for people to read, and only incidentally for machines to execute**.
 
 — [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/9780262510875/). Abelson, Sussman, and Sussman, 1984.
 
@@ -620,21 +594,46 @@ Expression:
 
 -- Phil Karlton
 
+. . .
+
+What does this function do?
+
 ```{r}
 myfun <- function(x){
   (x * 9/5) + 32
 }
+```
+
+## Hard things: Naming things
+
+Converting temperature?
+
+```{r}
 temperature_conversion <- function(x){
   (x * 9/5) + 32
 }
+```
+
+. . .
+
+Clearly state `input_to_output()`
+
+```{r}
 celcius_to_farenheit <- function(x){
   (x * 9/5) + 32
 }
-celcius_to_farenheit <- function(celcius){
-  (celcius * 9/5) + 32
-}
 ```
 
+. . .
+
+Name argument and intermediate variables
+
+```{r}
+celcius_to_farenheit <- function(celcius){
+  farenheit <- (celcius * 9/5) + 32
+  farenheit
+}
+```
 
 ## Other hard things?
 
@@ -648,15 +647,15 @@ celcius_to_farenheit <- function(celcius){
 
 The idea of inputs and outputs isn't hard
 
-. . . 
+. . .
 
 What **is** hard it taking code, (like the code in a data analysis) and **finding the parts that need to change**
 
 . . .
 
-> There's a level of "I got it to work" and there's a level of "It works, and I can reason about it" 
+> There's a level of "I got it to work" and there's a level of "It works, and I can reason about it"
 
--- Joe Cheng [You have to be able to reason about it | Data Science Hangout](https://youtu.be/J8qbRYa4430?si=GnCpXk_Go7_PzOJa&t=2380)
+-- Joe Cheng [You have to be able to reason about it \| Data Science Hangout](https://youtu.be/J8qbRYa4430?si=GnCpXk_Go7_PzOJa&t=2380)
 
 ## I can reason about it
 
@@ -670,18 +669,17 @@ What **is** hard it taking code, (like the code in a data analysis) and **findin
 
 > each of which you can **hold in your head**
 
-. . . 
+. . .
 
 > each of which you can look at and be like "yup, I can fully ingest this entire function definition, I can read it line by line and prove to myself this is definitely correct...
 
 <!-- , **IF** the functions its calling don't have bugs, **AND** if it's called in the **right way**...then the result will be correct. -->
 
-
 ## I can reason about it
 
 > So software engineering... is a lot about this: How do you **break up inherently complicated things** that we are trying to do into small **pieces that are individually easy to reason about**. That's half the battle...
 
-. . . 
+. . .
 
 > The other half of the battle is how do we combine them in ways that can be reliable and also easy to reason about
 
@@ -693,19 +691,19 @@ What **is** hard it taking code, (like the code in a data analysis) and **findin
 
 Our working memory = 7 +/- 2 (5-9) **things**
 
-. . . 
+. . .
 
-["The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information"](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two) George A. Miller, _Psychological Review_, 1956, 63 (2)
+["The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information"](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two) George A. Miller, *Psychological Review*, 1956, 63 (2)
 
 ## How many things can you hold in your head?
 
 Memory is not limited by bits, but by **chunks**
 
-. . . 
+. . .
 
 1-8-0-0-1-3-1-0-8-6
 
-. . . 
+. . .
 
 **1800** 131 **086**
 
@@ -713,7 +711,7 @@ Memory is not limited by bits, but by **chunks**
 
 So practice breaking code into **chunks**
 
-::: {.notes}
+::: notes
 celcius to farenheit: boom. done.
 
 The idea of inputs and outputs isn't hard.
@@ -725,16 +723,43 @@ Chunking and moving from numbers
 Miles' SSA talk: Let's borrow some key ideas from how we structure books: table of contents as a key to help.
 :::
 
-# Demo: Process of cleaning data analysis
+## Breaking code into **chunks**
 
-# Functions in Practice
+:::: {.columns}
 
-::: {.notes}
+::: {.column width="45%"}
 
-1.  Moving on to the motivations for what functions do well - emphasise actions (prior art hadley) - and how you can write bad functions that don't emphasise or name the actions
-    1.  This section is about managing complexity, and scaling that appropriately
-    2.  compile_report() vs six steps that go into that.
-    3.  Conclusion: The idea of chunking up code to break down complexity. communicate the idea that this is an iterative process - as Hadley said in his "design of everyday functions" talk, you need to write, then rewrite, then re-re-re-re-write functions, in the same way that it takes time to write text to communicate to others. (might be a good time to
+100 lines of code
+
+Is not 100 ideas
+
+**Chunk** code into ideas
+
+:::
+
+
+::: {.column width="45%}
+
+![](images/code-chunking.png){height=600}
+
+:::
+
+::::
+
+# Demo: Process of cleaning up a data analysis
+
+![](images/repo-ozed.png)
+
+
+
+# Summary: Cleaning up a data analysis
+
+- Functions helped us get to larger ideas - e.g., repeating this for each sheet, from 2014 - 2023
+- Debugging is a crucial step that should be taught alongside using functions
+
+::: notes
+
+The idea of chunking up code to break down complexity. communicate the idea that this is an iterative process - as Hadley said in his "design of everyday functions" talk, you need to write, then rewrite, then re-re-re-re-write functions, in the same way that it takes time to write text to communicate to others. (might be a good time to
 2.  Model how you do this part of your work. How do you move from writing code to writing functions. Writing functions doesn't have to be this "sometimes" activity - it should be part of a healthy data analysis. I will go through some common parts of a data analysis, and demonstrate a process for writing out steps as functions, and also special tools for creating, and understanding functions (fnmate, browser (also debugonce and recover). I want to cover this idea that you can use functions to manage your own complexity.
     1.  If you are doing a data analysis - moving from multiple scripts
 3.  Model how you do this part of your work. How do you move from writing code to writing functions. Writing functions doesn't have to be this "sometimes" activity - it should be part of a healthy data analysis. To do this I want to model this behaviour by walking through a data analysis, and demonstrating writing functions, and also special tools for creating, and understanding functions (fnmate, browser (also debugonce and recover))
@@ -750,12 +775,6 @@ Miles' SSA talk: Let's borrow some key ideas from how we structure books: table 
 -   The poor mans (other version?) debugger
 -   introduce browser
 
-:::
-
-# Debugging
-
-::: {.notes}
-
 Tell a story about how I was taught debugging when I first started programming and I just did not understand the reason why I would care. The reason it turns out - is that I didn't yet know about the idea of interactive vs non-interactive, or rather - the practitioner-programmer spectrum. And I guess that this is summarised by a nice slide from Hadley (<https://www.youtube.com/watch?v=Qne86lxjgtg>) - "you hear your code scream" vs "things break and people scream at you".
 
 Hadley talks about this idea of "code is a conversation" - when things break, or don't work, if you're working in this script-land, then you know when this breaks, and you might be able to jump back into things.
@@ -765,52 +784,28 @@ But if you're in programmer land, there's a wall between you and your code...som
 Summarise by talking about how we slide from the user \<--\> developer seamlessly. This is actually what R is designed to do!:
 
 ![](images/clipboard-2863518647.png)
-
 :::
-
-# Good and Bad Functions
 
 # Developing Your Craft
 
-How do you get better at writing functions in your own life? some ideas: read other people's code! use things like targets! peer review your code with colleagues.
+- read other people's code! 
+- use things like targets! 
+- peer review your code with colleagues.
 
-# Some thoughts
+::: notes
+How do you get better at writing functions in your own life?
+:::
 
-There are three things that I want to communicate in this talk:
-
-1.  Good functions are tools to manage complexity
-
-2.  Good functions are tools to explain and express ideas
-
-3.  Good functions can be individually reasoned with
-
-# Some thoughts
-
-There are ~~three~~ 3 things ~~that~~ I want to communicate ~~in this talk~~:
-
-Good functions:
-
-1.  ~~Good functions~~ ~~a~~Are tools to manage complexity
-
-2.  ~~Good functions~~ ~~a~~Are tools to explain and express ideas
-
-3.  ~~Good functions~~ ~~a~~Can be individually reasoned with
-
-# ~~Some thoughts~~ `communicate_key_ideas()`
-
-~~There are 3 things I want to communicate:~~
-
-Good functions:
-
-1.  ~~Are tools to~~ manage complexity
-
-2.  ~~Are tools to~~ explain and express ideas
-
-3.  Can be individually reasoned with
 
 # `convey_key_ideas()`
 
-There are 3 things I want to communicate:
+**Teach functions**:
+
+- rooted in useful examples
+- talk about expression
+- DRY is a useful secondary principle to expression
+
+# `convey_key_ideas()`
 
 **Good** functions:
 
@@ -820,14 +815,20 @@ There are 3 things I want to communicate:
 
 3.  Can be **individually reasoned** with
 
-# My challenge
 
-Just start writing a function
+# `convey_key_ideas()`
+
+**Practice**
+
+- Writing functions is **writing**
+- Sprinkle functions into daily use
+- Using functions to express ideas
 
 # Thanks
 
 ::: columns
-::: {.column width = "40%"}
+
+::: {.column width="40%"}
 
 -   Miles McBain
 -   Nick Golding
@@ -835,16 +836,23 @@ Just start writing a function
 -   Jenny Bryan
 :::
 
-::: {.column width = "40%"}
+::: {.column width="40%"}
 
 -   Saras Windecker
 -   Joe Cheng
+-   August Hao
+-   Chitra Saraswati
 
 :::
 
 ::::
 
 # Resources
+
+
+::: columns
+
+::: {.column width="40%"}
 
 -   https://stat545.com/functions-part1.html
 -   https://wiki.c2.com/?TelescopeRule
@@ -853,12 +861,22 @@ Just start writing a function
 -   https://web.archive.org/web/20201216043719/http://coding.derkeiler.com/Archive/Lisp/comp.lang.lisp/2006-04/msg01644.html
 -   <https://r4ds.had.co.nz/functions.html>
 -   <https://www.stat.auckland.ac.nz/~ihaka/downloads/lexical.pdf>
+
+:::
+
+::: {.column width="40%"}
+
 -   <https://adv-r.hadley.nz/functionals.html>
 -   <https://en.wikipedia.org/wiki/Inner-platform_effect>
 -   <https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule>
 -   <https://twobithistory.org/2018/10/14/lisp.html>
 -   <https://www.youtube.com/watch?v=rz3_FDVt9eg>
 -   <https://www.youtube.com/watch?v=Qne86lxjgtg>
+
+:::
+
+::::
+
 
 # Colophon
 
@@ -872,5 +890,13 @@ Just start writing a function
 `r icon_github` njtierney
 
 `r icon_plane` nicholas.tierney\@gmail.com
+
+# Bonus round
+
+## `fnmate`
+
+## `targets`
+
+## 
 
 # **End.**

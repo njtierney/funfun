@@ -18,3 +18,81 @@ But the point here isn't so much about avoiding repitition, it's about expressio
 That's what I was chasing earlier - it wasn't about avoiding repetition, it was about my expression being cut off (maybe quote Jacob Collier?)
 
 conclusion: Functions are about managing complexity
+
+
+```{r}
+odd_number <- function(x){
+  (x %% 2) == 0
+}
+odd_number(2)
+odd_number(7)
+```
+
+
+## Hang on what is `%%`?
+
+The modulo operator
+
+> `%%` indicates x mod y ("x modulo y"), i.e., computes the 'remainder' 
+
+```{r}
+4 %% 2
+4 %% 1
+4 %% 3
+```
+
+
+
+# Some thoughts
+
+There are three things that I want to communicate in this talk:
+
+1.  Good functions are tools to manage complexity
+
+2.  Good functions are tools to explain and express ideas
+
+3.  Good functions can be individually reasoned with
+
+# Some thoughts
+
+There are ~~three~~ 3 things ~~that~~ I want to communicate ~~in this talk~~:
+
+Good functions:
+
+1.  ~~Good functions~~ ~~a~~Are tools to manage complexity
+
+2.  ~~Good functions~~ ~~a~~Are tools to explain and express ideas
+
+3.  ~~Good functions~~ ~~a~~Can be individually reasoned with
+
+# ~~Some thoughts~~ `communicate_key_ideas()`
+
+~~There are 3 things I want to communicate:~~
+
+Good functions:
+
+1.  ~~Are tools to~~ manage complexity
+
+2.  ~~Are tools to~~ explain and express ideas
+
+3.  Can be individually reasoned with
+
+
+
+# Good and Bad Functions
+
+
+
+# Functions in Practice
+
+::: notes
+1.  Moving on to the motivations for what functions do well - emphasise actions (prior art hadley) - and how you can write bad functions that don't emphasise or name the actions
+    1.  This section is about managing complexity, and scaling that appropriately
+    2.  compile_report() vs six steps that go into that.
+    3.  Conclusion: The idea of chunking up code to break down complexity. communicate the idea that this is an iterative process - as Hadley said in his "design of everyday functions" talk, you need to write, then rewrite, then re-re-re-re-write functions, in the same way that it takes time to write text to communicate to others. (might be a good time to
+2.  Model how you do this part of your work. How do you move from writing code to writing functions. Writing functions doesn't have to be this "sometimes" activity - it should be part of a healthy data analysis. I will go through some common parts of a data analysis, and demonstrate a process for writing out steps as functions, and also special tools for creating, and understanding functions (fnmate, browser (also debugonce and recover). I want to cover this idea that you can use functions to manage your own complexity.
+    1.  If you are doing a data analysis - moving from multiple scripts
+3.  Model how you do this part of your work. How do you move from writing code to writing functions. Writing functions doesn't have to be this "sometimes" activity - it should be part of a healthy data analysis. To do this I want to model this behaviour by walking through a data analysis, and demonstrating writing functions, and also special tools for creating, and understanding functions (fnmate, browser (also debugonce and recover))
+    -   Other ideas to demonstrate in this demo
+        -   Maybe I want to simulate restarting R and coming back to it
+            -   Ah man, I don't want to re-run this data analysis now.
