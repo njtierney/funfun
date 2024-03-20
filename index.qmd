@@ -8,7 +8,7 @@ format:
   revealjs:
     theme: [blood, extra.scss]
     incremental: true
-    slide-number: true
+    slide-number: c
     show-slide-number: all
     footer: "talks.njtierney.com/funfun"
 editor: visual
@@ -107,22 +107,10 @@ note: Make this a line graph or something?
 2.  Function Fundamentals
 3.  Functions in Practice
 
-## list_prior_art()
+## {background-image="images/prior_art_wide.png" background-size="contain"}
 
 ::: notes
 The thing that I want to communicate here is "I've learnt a lot from others - and in some ways this talk is just me remixing the important messages that others have already spent a good deal more time doing". So I want to start by firstly acknowledging five people whose talks and work have helped me understand functions in a deeper way to become a better programmer, and I want to note a key thing that they helped me understand.
-:::
-
-::: bigger
-```         
-list(
-  prior_art("hadley"),
-  prior_art("miles"),
-  prior_art("jenny"),
-  prior_art("joe"),
-  prior_art("roger"),
-  )
-```
 :::
 
 <!-- ![](images/clipboard-4268136480.png) -->
@@ -568,19 +556,18 @@ A **process** for writing a function
 -   Come up with some good **names** (consider verbs?)
 -   Writing functions is **iterative**, Just like **regular writing**
 
-# DRY is secondary to **expression**
+# Functions are about **expression**
 
-DRY is a useful idea!
+-   **Explain and express ideas**
+-   **Manage complexity**
+
+. . . 
+
+DRY has benefits - but I think **expression** and **complexity** are more powerful
 
 -   Avoiding copy/paste avoids **easy errors**!
 -   Make changes in one place - **awesome**!
 
-. . .
-
-But, expression is the more powerful idea:
-
--   **Explain and express ideas**
--   **Manage complexity**
 
 ## Code is for people
 
@@ -588,7 +575,7 @@ But, expression is the more powerful idea:
 
 — [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/9780262510875/). Abelson, Sussman, and Sussman, 1984.
 
-## Hard things: Naming things
+## Naming things is **hard**
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.
 
@@ -604,7 +591,7 @@ myfun <- function(x){
 }
 ```
 
-## Hard things: Naming things
+## Naming things is **hard**
 
 Converting temperature?
 
@@ -729,11 +716,17 @@ Miles' SSA talk: Let's borrow some key ideas from how we structure books: table 
 
 ::: {.column width="45%"}
 
-100 lines of code
+- 100 **lines** of code
 
-Is not 100 ideas
+- Is not 100 **ideas**
 
-**Chunk** code into ideas
+- **Chunk** code into ideas
+
+- **Reason with** them 
+
+- Find the **complexity**
+
+- **Abstract** complexity
 
 :::
 
@@ -750,7 +743,63 @@ Is not 100 ideas
 
 ![](images/repo-ozed.png)
 
+## {background-image="images/roger-user-developer-spectrum.png" background-size="cover"}
 
+## {background-image="images/hadley-practice-programmer.png" background-size="cover"}
+
+### Practitioner <--> Programmer
+
+> The ambiguity [of the S language] is real and goes to a key objective: we wanted users to be able to begin in an **interactive environment**, where they did not consciously think of themselves as programming. Then as their needs became clearer and their sophistication increased, they should be able to **slide gradually into programming**, when the language and system aspects would become more important
+
+https://blog.revolutionanalytics.com/2014/01/john-chambers-recounts-the-history-of-s-and-r.html
+
+Taken from [tapply to Tidyverse, by Roger Peng]()
+
+::: notes
+
+I want to emphasise two things here: 1. The creators of S, the ancestor to the R language, **wanted you to program**. But they also want you to practice code, and work interactively. , and 2. What I'm telling you now isn't like a brand new idea or anything. It's been here all along.
+
+:::
+
+# Debugging:
+
+- Getting an error when writing can feel like a punishment
+- But hanging out with errors is like, the normal state
+- When learning functions, you should be learning debugging along the way
+
+# `browser()`
+
+```{r}
+# example function code here - something useful though
+my_fun <- function(x, y){
+  operation <- 1+2
+  browser() # jump into this point in the function
+  # "n" + [RETURN] go to **n**ext line
+  
+  # "s" + [RETURN] **s**tep into highlighted function
+  
+  # "f" + [RETURN] **f**inish the rest of the function
+}
+```
+
+# Back to **demo**
+
+# `debug()` and friends
+
+- `debug(function_name)`
+  - as if "browser" has been turned on at the top of the function. 
+  - saves you needing to inject `browser()` into code
+  - will run debugging on `function_name()` until end of session
+- `undebug(function_name)`
+  - Turns off `debug()`
+- `debugonce(function_name)`
+  - Does `debug(function_name)` exactly one time
+
+# Other debugging tools to explore
+
+- `options(error = recover)`: watch Miles McBain's "stop. breath. recover" video
+- `options(error = browser)`: Will drop a `browser()` in your code when you hit an error. Kind of scary.
+- `options(error = NULL)`: turn off these special modes
 
 # Summary: Cleaning up a data analysis
 
