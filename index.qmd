@@ -794,13 +794,12 @@ Miles' SSA talk: Let's borrow some key ideas from how we structure books: table 
 
 ##  {background-image="images/abs-education-data-markup.png" background-size="contain"}
 
-# Debugging should be taught with functions:
+# Debugging should be taught with functions
 
--   Otherwise it's building a box that you can't look inside and fix
--   Or giving people power tools without safety equipment
--   We need to teach people what happens when things go wrong
--   Teach people how to write
--   But teach people how to write but only in software that writes out to PDF so you can't edit the text ever again
+-   Otherwise we build a box **we can't look inside** and fix
+-   Or give power tools **without safety equipment**
+-   Or writing with software that writes **un-editable PDFs**
+-   We need to teach what happens when things go wrong
 
 # Some thoughts on debugging
 
@@ -812,16 +811,16 @@ Miles' SSA talk: Let's borrow some key ideas from how we structure books: table 
 # Using `browser()`
 
 ```{r}
+#| eval: false
 # example function code here - something useful though
-my_fun <- function(x, y){
-  operation <- 1+2
+tidy_education <- function(data, names){
+  names <- trimws(names)
   browser() # jump into this point in the function
   # "n" Next line
-  
+  tidied <- 
   # "s" Step into highlighted function
-  
+  combined <- combine_custom_data(tidied, data)
   # "f" Finish execution of loop or function
-  
   # "Q" Quit browser
 }
 ```
@@ -834,7 +833,7 @@ my_fun <- function(x, y){
 
 > The ambiguity \[of the S language\] is real and goes to a key objective: we wanted users to be able to begin in an **interactive environment**, where they did not consciously think of themselves as programming. Then as their needs became clearer and their sophistication increased, they should be able to **slide gradually into programming**, when the language and system aspects would become more important
 
-[-- **John Chambers, "Stages in the evolution of S**"](https://blog.revolutionanalytics.com/2014/01/john-chambers-recounts-the-history-of-s-and-r.html)
+[** -- John Chambers, "Stages in the evolution of S"**](https://blog.revolutionanalytics.com/2014/01/john-chambers-recounts-the-history-of-s-and-r.html)
 
 [**(Heard via 'tapply to Tidyverse', by Roger Peng)**]())
 
@@ -967,9 +966,9 @@ How do you get better at writing functions in your own life?
 -   `debugonce(function_name)`
     -   Does `debug(function_name)` **once**
 
-# Good function bad function
+# Good function \n bad function
 
-# Other debugging tools to explore
+# Other debugging tools
 
 -   `options(error = recover)`: watch Miles McBain's [**"stop. breath. recover" video**]()
 -   `options(error = browser)`: Will drop a `browser()` in your code when you hit an error. Kind of scary.
