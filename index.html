@@ -671,7 +671,7 @@ mean of x mean of y
 <section id="can-i-use-other-variables" class="slide level2">
 <h2>Can I use other variables?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="1,2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>var_missing <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Ozone</span>
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="1,2|7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>var_missing <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Ozone</span>
 <span id="cb5-2"><a href=""></a>var_interest <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Wind</span>
 <span id="cb5-3"><a href=""></a>which_missing <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(var_missing))</span>
 <span id="cb5-4"><a href=""></a>which_complete <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(var_missing))</span>
@@ -694,8 +694,8 @@ mean of x mean of y
 </div>
 </div>
 </section>
-<section id="this-felt-wrong" class="slide level2">
-<h2>This felt wrong</h2>
+<section id="spot-the-difference" class="slide level2">
+<h2>“Spot the difference”</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>var_missing <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Ozone</span>
 <span id="cb7-2"><a href=""></a>var_interest <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Wind</span>
@@ -714,6 +714,19 @@ mean of x mean of y
 <span id="cb7-15"><a href=""></a>var_interest_complete <span class="ot">&lt;-</span> var_interest[which_complete]</span>
 <span id="cb7-16"><a href=""></a>result_solar_temp <span class="ot">&lt;-</span> <span class="fu">t.test</span>(var_interest_miss, <span class="at">y =</span> var_interest_complete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<p>playing “spot the difference” felt wrong!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="eventuallya-function" class="slide level2">
 <h2>…eventually…a function!</h2>
@@ -796,7 +809,13 @@ mean of x mean of y
 <p><strong>Trivialises</strong> functions</p>
 </div>
 <div class="fragment">
-<p>Doesn’t really <strong>showcase</strong> the power</p>
+<p>Functions should be <strong>relevant</strong> to you</p>
+</div>
+<div class="fragment">
+<p>Functions are <strong>expression</strong> they are <strong>ideas</strong></p>
+</div>
+<div class="fragment">
+<p>Functions <strong>manage complexity</strong></p>
 <aside class="notes">
 <p>It doesn’t showcase the power It makes it seem trivial</p>
 <style type="text/css">
@@ -872,9 +891,11 @@ mean of x mean of y
 <aside><div>
 <p>*naming credit: Miles McBain</p>
 </div></aside></section>
-<section id="writing-a-function" class="slide level2">
-<h2><strong>Writing</strong> a function</h2>
+<section id="how-to-write-a-function" class="slide level2">
+<h2>How to <strong>write</strong> a function</h2>
+<div class="fragment">
 <p>Functions are tools for <strong>managing complexity</strong></p>
+</div>
 <div class="fragment">
 <p>AKA as <strong>abstraction</strong> or <strong>abstracting away</strong></p>
 </div>
@@ -883,8 +904,10 @@ mean of x mean of y
 </div>
 <div class="fragment">
 <p>What do we want to <strong>abstract away</strong>?</p>
+</div>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="|1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>is_different <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
+<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="|1|2|3|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>is_different <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
 <span id="cb19-2"><a href=""></a>when_missing_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(airquality<span class="sc">$</span>Ozone))</span>
 <span id="cb19-3"><a href=""></a>when_complete_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(airquality<span class="sc">$</span>Ozone))</span>
 <span id="cb19-4"><a href=""></a>is_different_miss <span class="ot">&lt;-</span> is_different[when_missing_index]</span>
@@ -937,7 +960,7 @@ mean of x mean of y
 <h2>Writing functions is <strong>writing</strong></h2>
 <p>Naming things can be <strong>tricky</strong>; that’s OK</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="|1|2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>misstest <span class="ot">&lt;-</span> <span class="cf">function</span>(is_different, when_missing){</span>
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="|1|2|3|4|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>misstest <span class="ot">&lt;-</span> <span class="cf">function</span>(is_different, when_missing){</span>
 <span id="cb23-2"><a href=""></a>  <span class="co"># is_different &lt;- airquality$Temp</span></span>
 <span id="cb23-3"><a href=""></a>  <span class="co"># when_missing_index &lt;- which(is.na(airquality$Ozone))</span></span>
 <span id="cb23-4"><a href=""></a>  when_missing_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(when_missing))</span>
@@ -997,8 +1020,9 @@ mean of x mean of y
 <section id="writing-functions-is-writing-6" class="slide level2">
 <h2>Writing functions is <strong>writing</strong></h2>
 <p><strong>Name</strong> the function something that <strong>evokes</strong> the <strong>action</strong></p>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="|1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>missingness_impact <span class="ot">&lt;-</span> <span class="cf">function</span>(is_different, when_missing){</span>
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="1|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>missingness_impact <span class="ot">&lt;-</span> <span class="cf">function</span>(is_different, when_missing){</span>
 <span id="cb27-2"><a href=""></a>  when_missing_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(when_missing))</span>
 <span id="cb27-3"><a href=""></a>  when_complete_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(when_missing))</span>
 <span id="cb27-4"><a href=""></a>  is_different_miss <span class="ot">&lt;-</span> is_different[when_missing_index]</span>
@@ -1007,10 +1031,15 @@ mean of x mean of y
 <span id="cb27-7"><a href=""></a>  result_ozone_temp</span>
 <span id="cb27-8"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+<div class="fragment">
+<p>You need to <strong>use</strong> the function</p>
+</div>
 </section>
 <section id="writing-functions-is-writing-7" class="slide level2">
 <h2>Writing functions is <strong>writing</strong></h2>
 <p>You need to <strong>use</strong> the function</p>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">missingness_impact</span>(</span>
 <span id="cb28-2"><a href=""></a>  <span class="at">when_missing =</span> airquality<span class="sc">$</span>Ozone,</span>
@@ -1030,10 +1059,11 @@ mean of x mean of y
  77.91892  77.87069 </code></pre>
 </div>
 </div>
+</div>
 </section>
 <section id="writing-functions-is-writing-8" class="slide level2">
 <h2>Writing functions is <strong>writing</strong></h2>
-<p>And <strong>write</strong> the output</p>
+<p>And <strong>write</strong> the output to a <strong>variable</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30" data-code-line-numbers="|1|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>temp_difference_ozone_missing <span class="ot">&lt;-</span> <span class="fu">missingness_impact</span>(</span>
 <span id="cb30-2"><a href=""></a>  <span class="at">when_missing =</span> airquality<span class="sc">$</span>Ozone,</span>
@@ -1063,41 +1093,48 @@ mean of x mean of y
 <li class="fragment"><strong>Copy</strong> text into body</li>
 <li class="fragment"><strong>Identify</strong> complexity to manage</li>
 <li class="fragment"><strong>Abstract</strong> the complexity</li>
-<li class="fragment">Come up with some good <strong>names</strong> (consider verbs?)</li>
 <li class="fragment">Writing functions is <strong>iterative</strong>, Just like <strong>regular writing</strong></li>
 </ul>
 </section>
 <section id="circling-back-to-dry" class="slide level2">
 <h2>Circling back to <strong>DRY</strong></h2>
 <ul>
-<li class="fragment">DRY treats the symptom of repetition</li>
-<li class="fragment">But the cause is expression and reasonining</li>
-<li class="fragment">Resolving repitition != mean a function is good</li>
+<li class="fragment">The problem is <strong>complex code</strong></li>
+<li class="fragment">DRY treats the symptom - <strong>repetition</strong></li>
+<li class="fragment">But the <strong>cause</strong> is expression and reasoning</li>
+<li class="fragment">A function isn’t <strong>only</strong> needed when you repeat code</li>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>is_different <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
-<span id="cb32-2"><a href=""></a>when_missing_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(airquality<span class="sc">$</span>Ozone))</span>
-<span id="cb32-3"><a href=""></a>when_complete_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(airquality<span class="sc">$</span>Ozone))</span>
-<span id="cb32-4"><a href=""></a>is_different_miss <span class="ot">&lt;-</span> is_different[when_missing_index]</span>
-<span id="cb32-5"><a href=""></a>is_different_complete <span class="ot">&lt;-</span> is_different[when_complete_index]</span>
-<span id="cb32-6"><a href=""></a>result_ozone_temp <span class="ot">&lt;-</span> <span class="fu">t.test</span>(is_different_miss, is_different_complete)</span>
-<span id="cb32-7"><a href=""></a></span>
-<span id="cb32-8"><a href=""></a>is_different <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Wind</span>
-<span id="cb32-9"><a href=""></a>when_missing_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(airquality<span class="sc">$</span>Solar.R))</span>
-<span id="cb32-10"><a href=""></a>when_complete_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(airquality<span class="sc">$</span>Solar.R))</span>
-<span id="cb32-11"><a href=""></a>is_different_miss <span class="ot">&lt;-</span> is_different[when_missing_index]</span>
-<span id="cb32-12"><a href=""></a>is_different_complete <span class="ot">&lt;-</span> is_different[when_complete_index]</span>
-<span id="cb32-13"><a href=""></a>result_solar_wind <span class="ot">&lt;-</span> <span class="fu">t.test</span>(is_different_miss, is_different_complete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="co"># Tell me why this is a bad idea!</span></span>
+<span id="cb32-2"><a href=""></a>blindly_functionalising <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb32-3"><a href=""></a>  is_different <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
+<span id="cb32-4"><a href=""></a>  when_missing_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(airquality<span class="sc">$</span>Ozone))</span>
+<span id="cb32-5"><a href=""></a>  when_complete_index <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(airquality<span class="sc">$</span>Ozone))</span>
+<span id="cb32-6"><a href=""></a>  is_different_miss <span class="ot">&lt;-</span> is_different[when_missing_index]</span>
+<span id="cb32-7"><a href=""></a>  is_different_complete <span class="ot">&lt;-</span> is_different[when_complete_index]</span>
+<span id="cb32-8"><a href=""></a>  result_ozone_temp <span class="ot">&lt;-</span> <span class="fu">t.test</span>(is_different_miss,</span>
+<span id="cb32-9"><a href=""></a>                              is_different_complete)</span>
+<span id="cb32-10"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section id="circling-back-to-dry-1" class="slide level2">
-<h2>Circling back to <strong>DRY</strong></h2>
+<aside class="notes">
+<p>And this is bad - WHY is this bad?</p>
 <ul>
-<li class="fragment">Focussing on solving repetition</li>
-<li class="fragment">You (probably) don’t want to just take a data analysis and turn it into a single function.</li>
+<li>Focussing on solving repetition</li>
+<li>You (probably) don’t want to just take a data analysis and turn it into a single function.</li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
 </section></section>
 <section>
 <section id="functions-are-about-expression" class="title-slide slide level1 center">
@@ -1120,6 +1157,11 @@ mean of x mean of y
 <p>[W]e want to establish the idea that a computer language is not just a way of getting a computer to perform operations but rather that it is a novel formal medium for expressing ideas about methodology. Thus, <strong>programs must be written for people to read, and only incidentally for machines to execute</strong>.</p>
 </blockquote>
 <p>— <a href="https://mitpress.mit.edu/9780262510875/"><strong>Structure and Interpretation of Computer Programs</strong></a>. Abelson, Sussman, and Sussman, 1984.</p>
+</section></section>
+<section>
+<section id="you-are-always-collaboratingwith-your-future-self" class="title-slide slide level1 center">
+<h1>You are always collaborating…<strong>with your future self</strong></h1>
+
 </section>
 <section id="naming-things-is-hard" class="slide level2">
 <h2>Naming things is <strong>hard</strong></h2>
@@ -1162,8 +1204,13 @@ mean of x mean of y
 </div>
 </div>
 </section>
-<section id="what-is-hard-about-functions" class="slide level2">
-<h2>What is <strong>hard</strong> about functions?</h2>
+<section id="iteration-skateboard---car" class="slide level2">
+<h2>Iteration: <strong>Skateboard</strong> -&gt; Car</h2>
+
+<img data-src="images/spotify-howtobuildmvp.jpg" class="quarto-figure quarto-figure-center r-stretch" data-fig-height="500"><p>(heard via <a href="https://stat545.com/functions-part1.html"><strong>Stat545 functions chapter</strong></a>)</p>
+</section>
+<section id="what-makes-functions-hard" class="slide level2">
+<h2>What makes functions <strong>hard</strong>?</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>celcius_to_farenheit <span class="ot">&lt;-</span> <span class="cf">function</span>(celcius){</span>
 <span id="cb37-2"><a href=""></a>  (celcius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
@@ -1262,8 +1309,8 @@ mean of x mean of y
 <div class="columns">
 <div class="column" style="width:45%;">
 <ul>
-<li class="fragment"><p>100 <strong>lines</strong> of code</p></li>
-<li class="fragment"><p>Is not 100 <strong>ideas</strong></p></li>
+<li class="fragment"><p>50 <strong>lines</strong> of code</p></li>
+<li class="fragment"><p>Is not 50 <strong>ideas</strong></p></li>
 <li class="fragment"><p><strong>Chunk</strong> code into ideas</p></li>
 <li class="fragment"><p><strong>Reason with</strong> them</p></li>
 <li class="fragment"><p>Find the <strong>complexity</strong></p></li>
@@ -1292,13 +1339,12 @@ mean of x mean of y
 </ul>
 </section>
 
-<section id="some-thoughts-on-debugging" class="title-slide slide level1 center">
-<h1>Some thoughts on debugging</h1>
+<section id="you-should-be-learning-debugging-when-learning-functions" class="title-slide slide level1 center">
+<h1>You should be learning debugging when learning functions</h1>
 <ul>
 <li class="fragment">An error when writing can feel like punishment</li>
 <li class="fragment">But hanging out with errors is a normal state</li>
 <li class="fragment">It’s like an expression problem in your writing</li>
-<li class="fragment">You should be learning debugging when learning functions</li>
 </ul>
 </section>
 
@@ -1316,7 +1362,8 @@ mean of x mean of y
 <span id="cb38-8"><a href=""></a>  combined <span class="ot">&lt;-</span> <span class="fu">combine_custom_data</span>(tidied, data)</span>
 <span id="cb38-9"><a href=""></a>  <span class="co"># "f" Finish execution of loop or function</span></span>
 <span id="cb38-10"><a href=""></a>  <span class="co"># "Q" Quit browser</span></span>
-<span id="cb38-11"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-11"><a href=""></a>  <span class="co"># "help" - loads a list of helper code</span></span>
+<span id="cb38-12"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-2" class="slide level2" data-background-image="images/roger-user-developer-spectrum.png" data-background-size="contain">
@@ -1346,11 +1393,6 @@ mean of x mean of y
           display:block!important;
       }</style></aside>
 </section></section>
-<section id="back-to-demo" class="title-slide slide level1 center">
-<h1>Back to <strong>demo</strong></h1>
-
-</section>
-
 <section>
 <section id="summary-cleaning-up-a-data-analysis" class="title-slide slide level1 center">
 <h1>Summary: Cleaning up a data analysis</h1>
@@ -1411,13 +1453,14 @@ mean of x mean of y
 <ul>
 <li class="fragment">Emphasise using functions to <strong>express ideas</strong>
 <ul>
-<li class="fragment">Avoiding repition is a symptom of needing a function</li>
+<li class="fragment">Avoiding repetion is a symptom of needing a function</li>
 </ul></li>
 <li class="fragment">Demonstrate <strong>process</strong>
 <ul>
 <li class="fragment">Demos &amp; writing</li>
 </ul></li>
 <li class="fragment">Try and use practical functions, not only <strong>toy</strong> ones</li>
+<li class="fragment">Teach <strong>debugging</strong> alongside functions</li>
 </ul>
 </section>
 
@@ -1425,9 +1468,9 @@ mean of x mean of y
 <h1>My <strong>challenge</strong> to you</h1>
 <ul>
 <li class="fragment">Start <strong>sprinkling</strong> functions into daily use</li>
+<li class="fragment">use <code>browser()</code> or other debugging tools</li>
 <li class="fragment">Read other people’s code - peer review!</li>
 <li class="fragment">Question me - does this make sense?</li>
-<li class="fragment">Look into workflow tools like <a href=""><strong>targets</strong></a>!</li>
 </ul>
 <aside class="notes">
 <p>How do you get better at writing functions in your own life?</p>
@@ -1466,25 +1509,24 @@ mean of x mean of y
 </div>
 </section>
 
-<section id="resources-interesting-reading" class="title-slide slide level1 center">
-<h1>Resources / interesting reading</h1>
+<section id="references" class="title-slide slide level1 center">
+<h1>References</h1>
 <div class="columns">
 <div class="column" style="width:45%;">
 <ul>
-<li class="fragment"><a href="https://stat545.com/functions-part1.html"><strong>stat545 chapter on functions</strong></a></li>
-<li class="fragment"><a href="https://wiki.c2.com/?TelescopeRule"><strong>The telescope rule</strong></a></li>
-<li class="fragment"><a href="https://r4ds.had.co.nz/functions.html"><strong>Advanced R: Functions</strong></a></li>
-<li class="fragment"><a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/lexical.pdf"><strong>Closures in statistics</strong></a></li>
-<li class="fragment"><a href="https://www.youtube.com/watch?v=J8qbRYa4430"><strong>youtube</strong></a></li>
-<li class="fragment"><a href="https://web.archive.org/web/20201216043719/http://coding.derkeiler.com/Archive/Lisp/comp.lang.lisp/2006-04/msg01644.html"><strong>LISP ruined me</strong></a></li>
+<li class="fragment"><a href="https://www.youtube.com/watch?v=J8qbRYa4430"><strong>You have to be able to reason about it</strong></a></li>
+<li class="fragment"><a href="https://www.youtube.com/watch?v=rz3_FDVt9eg"><strong>Many Models</strong></a></li>
+<li class="fragment"><a href="https://www.youtube.com/watch?v=Qne86lxjgtg"><strong>The design of everyday functions</strong></a></li>
+<li class="fragment"><a href="https://www.youtube.com/watch?v=ywK4qs5dJsg"><strong>Our colour of magic</strong></a></li>
+<li class="fragment"><a href="https://www.youtube.com/watch?v=7oyiPBjLAWY"><strong>Code Smells and Feels</strong></a></li>
+<li class="fragment"><a href="https://www.youtube.com/watch?v=5033jBHFiHE&amp;t=1s"><strong>From tapply to Tidyverse</strong></a></li>
 </ul>
 </div><div class="column" style="width:45%;">
 <ul>
-<li class="fragment"><a href="https://en.wikipedia.org/wiki/Inner-platform_effect"><strong>Inner platform effect</strong></a></li>
-<li class="fragment"><a href="https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule"><strong>Greenspuns 10th rule</strong></a></li>
-<li class="fragment"><a href="https://twobithistory.org/2018/10/14/lisp.html"><strong>LISP</strong></a></li>
-<li class="fragment"><a href="https://www.youtube.com/watch?v=rz3_FDVt9eg"><strong>something</strong></a></li>
-<li class="fragment"><a href="https://www.youtube.com/watch?v=Qne86lxjgtg"><strong>something</strong></a></li>
+<li class="fragment"><a href="https://r4ds.had.co.nz/functions.html"><strong>Advanced R: Functions</strong></a></li>
+<li class="fragment"><a href="https://design.tidyverse.org/"><strong>Tidy Design Principles</strong></a></li>
+<li class="fragment"><a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/lexical.pdf"><strong>Lexical Scope and Statistical Computing</strong></a></li>
+<li class="fragment"><a href="https://stat545.com/functions-part1.html"><strong>stat545 chapter on functions</strong></a></li>
 </ul>
 </div>
 </div>
@@ -1500,18 +1542,9 @@ mean of x mean of y
 
 <section id="learning-more" class="title-slide slide level1 center">
 <h1>Learning more</h1>
-<svg viewbox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#f0a800;" xmlns="http://www.w3.org/2000/svg">
-<path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path>
-</svg>
-<p><a href=""><strong>talk link</strong></a></p>
-<svg viewbox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#f0a800;" xmlns="http://www.w3.org/2000/svg">
-<path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
-</svg>
-<p>njtierney</p>
-<svg viewbox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#f0a800;" xmlns="http://www.w3.org/2000/svg">
-<path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path>
-</svg>
-<p>nicholas.tierney@gmail.com</p>
+<p><svg viewbox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#f0a800;" xmlns="http://www.w3.org/2000/svg"> <path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path> </svg> <a href=""><strong>talk link</strong></a></p>
+<p><svg viewbox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#f0a800;" xmlns="http://www.w3.org/2000/svg"> <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path> </svg> njtierney</p>
+<p><svg viewbox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#f0a800;" xmlns="http://www.w3.org/2000/svg"> <path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path> </svg> nicholas.tierney@gmail.com</p>
 </section>
 
 <section id="bonus-round" class="title-slide slide level1 center">
@@ -1550,19 +1583,28 @@ mean of x mean of y
 <li class="fragment"><code>options(error = NULL)</code>: turn off these special modes</li>
 </ul>
 </section>
-<section id="fnmate" class="slide level2">
-<h2><code>fnmate</code></h2>
-<p><strong>gif from fnmate</strong></p>
-</section>
-<section id="targets" class="slide level2">
-<h2><code>targets</code></h2>
-<p><strong>screenshot of targets pipeline</strong></p>
+<section id="fnmate-milesmcbainfnmate" class="slide level2">
+<h2><code>fnmate</code>: milesmcbain/fnmate</h2>
+
+<img data-src="images/fnmate.gif" class="r-stretch"></section>
+<section id="targets-ropenscitargets" class="slide level2">
+<h2><code>targets</code>: ropensci/targets</h2>
+
+<img data-src="images/targets.png" class="r-stretch"></section>
+<section id="other-fun-reading" class="slide level2">
+<h2>Other fun reading</h2>
+<ul>
+<li class="fragment"><a href="https://web.archive.org/web/20201216043719/http://coding.derkeiler.com/Archive/Lisp/comp.lang.lisp/2006-04/msg01644.html"><strong>How knowing Lisp destroyed my programming career</strong></a></li>
+<li class="fragment"><a href="https://en.wikipedia.org/wiki/Inner-platform_effect"><strong>Inner platform effect</strong></a></li>
+<li class="fragment"><a href="https://en.wikipedia.org/wiki/Greenspun%27s_tenth_rule"><strong>Greenspuns 10th rule</strong></a></li>
+<li class="fragment"><a href="https://wiki.c2.com/?TelescopeRule"><strong>The telescope rule</strong></a></li>
+</ul>
 </section></section>
 <section id="end." class="title-slide slide level1 center">
 <h1><strong>End.</strong></h1>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
-<p>talks.njtierney.com/funfun</p>
+<p>njtierney.github.io/funfun/</p>
 </div>
 </div>
 </section>
