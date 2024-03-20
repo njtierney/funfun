@@ -1,6 +1,0 @@
-# some (potentially) bad practice when writing functions
-
--   converting an entire script into a massive bloatware function with
-    20 arguments
--   Avoiding "the one package to rule them all" (and in the darkness
-    blind them)
