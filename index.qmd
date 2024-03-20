@@ -598,9 +598,15 @@ temp_difference_ozone_missing <- missingness_impact(
 temp_difference_ozone_missing
 ```
 
-## Writing functions is **writing**
 
-A **process** for writing a function
+## Iteration: **Skateboard** -> Car
+
+![](images/spotify-howtobuildmvp.jpg){fig-align="center" fig-height=500}
+
+(heard via [**Stat545 functions chapter**](https://stat545.com/functions-part1.html))
+
+
+## **process** for writing functions
 
 -   **Copy** text into body
 -   **Identify** complexity to manage
@@ -703,12 +709,6 @@ celcius_to_farenheit <- function(celcius){
 }
 ```
 
-## Iteration: **Skateboard** -> Car
-
-![](images/spotify-howtobuildmvp.jpg){fig-align="center" fig-height=500}
-
-(heard via [**Stat545 functions chapter**](https://stat545.com/functions-part1.html))
-
 ## What makes functions **hard**?
 
 ```{r}
@@ -767,7 +767,7 @@ Our working memory = 7 +/- 2 (5-9) **chunks**
 
 . . .
 
-["**The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information**"](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two) George A. Miller, *Psychological Review*, 1956, 63 (2)
+[**"The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information"**](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two) George A. Miller, *Psychological Review*, 1956, 63 (2)
 
 ## How many things can you hold in your head?
 
@@ -829,14 +829,13 @@ Miles' SSA talk: Let's borrow some key ideas from how we structure books: table 
 
 -   Otherwise we build a box **we can't look inside** and fix
 -   Or give power tools **without safety equipment**
--   Or writing with software that writes **un-editable PDFs**
--   We need to teach what happens when things go wrong
+-   We need to teach what happens when things **go wrong**
 
-# You should be learning debugging when learning functions
+# You should be learning **debugging** when learning functions
 
--   An error when writing can feel like punishment
--   But hanging out with errors is a normal state
--   It's like an expression problem in your writing
+-   An **error** when writing can feel like **punishment**
+-   But hanging out with errors is the **normal state**
+-   It's like an **expression** problem in your writing
 
 # Using `browser()`
 
@@ -909,7 +908,7 @@ Summarise by talking about how we slide from the user \<--\> developer seamlessl
 1.  Manage **complexity**
 2.  Explain and express **ideas**
 3.  Can be **individually reasoned** with
-4.  Take **iteration**
+4.  Require **iteration**
 
 # **Teaching** functions
 
@@ -950,6 +949,16 @@ How do you get better at writing functions in your own life?
 :::
 :::
 
+
+# Learning more
+
+`r icon_link` [**njtierney.github.io/funfun/**](https://njtierney.github.io/funfun/)
+
+`r icon_github` njtierney/funfun
+
+`r icon_plane` nicholas.tierney\@gmail.com
+
+
 # References
 
 ::: columns
@@ -975,14 +984,6 @@ How do you get better at writing functions in your own life?
 -   Slides made using [**quarto**](https://github.com/quarto-dev/quarto)
 -   Colours taken + modified from [**lorikeet theme from ochRe**](https://github.com/ropenscilabs/ochRe) [**njtierney/njt-talks**](github.com/njtierney/njt-talks) <!-- - Header font is **Josefin Sans** --> <!-- - Body text font is **Montserrat** --> <!-- - Code font is **Fira Mono** --> <!-- - template available:  -->
 
-# Learning more
-
-`r icon_link` [**talk link**]()
-
-`r icon_github` njtierney
-
-`r icon_plane` nicholas.tierney\@gmail.com
-
 # Bonus round
 
 # `debug()` and friends
@@ -999,7 +1000,7 @@ How do you get better at writing functions in your own life?
 
 # Other debugging tools
 
--   `options(error = recover)`: watch Miles McBain's [**"stop. breath. recover" video**]()
+-   `options(error = recover)`: watch Miles McBain's [**"stop() - breathe - recover()" video**](https://www.youtube.com/watch?v=M5n_2jmdJ_8&t=1s)
 -   `options(error = browser)`: Will drop a `browser()` in your code when you hit an error. Kind of scary.
 -   `options(error = NULL)`: turn off these special modes
 
