@@ -57,7 +57,6 @@ My **challenge** to you
 -   [**Lexical Scope and Statistical Computing**](https://www.stat.auckland.ac.nz/~ihaka/downloads/lexical.pdf)
 -   [**stat545 chapter on functions**](https://stat545.com/functions-part1.html)
 
-
 # Colophon
 
   - Slides made using [quarto](https://github.com/quarto-dev/quarto)
@@ -69,7 +68,6 @@ Eventually, this theme will add these features in:
   - Header font is **Josefin Sans**
   - Body text font is **Montserrat**
   - Code font is **Fira Mono**
-
 
 # Bio
 
