@@ -124,7 +124,7 @@ Functions were the form of expression that I wanted
 
 Why didn't I see that earlier? It's because functions weren't explained to me in terms of chunking/decluttering/breaking down complexity.
 
-They were introduced as "celcius to farenheit", or "mean center a value" or "find odd numbers".
+They were introduced as "celcius to fahrenheit", or "mean center a value" or "find odd numbers".
 
 It's not that those things weren't useful
 :::
@@ -319,12 +319,12 @@ missingness_impact(
 ## Teaching functions?
 
 ```{r}
-celcius_to_farenheit <- function(x){
+celcius_to_fahrenheit <- function(x){
   (x * 9/5) + 32
 }
 
-celcius_to_farenheit(0)
-celcius_to_farenheit(25)
+celcius_to_fahrenheit(0)
+celcius_to_fahrenheit(25)
 ```
 
 . . .
@@ -617,13 +617,12 @@ temp_difference_ozone_missing
 
 -   The problem is **complex code**
 -   DRY treats the symptom - **repetition**
--   But the **cause** is expression and reasoning
+-   You only repeat because you **cannot express** - the **cause** is expression and reasoning
 -   A function isn't **only** needed when you repeat code
 
 . . .
 
 ```{r}
-# Tell me why this is a bad idea!
 blindly_functionalising <- function(){
   is_different <- airquality$Temp
   when_missing_index <- which(is.na(airquality$Ozone))
@@ -693,7 +692,7 @@ temperature_conversion <- function(x){
 Clearly state `input_to_output()`
 
 ```{r}
-celcius_to_farenheit <- function(x){
+celcius_to_fahrenheit <- function(x){
   (x * 9/5) + 32
 }
 ```
@@ -703,16 +702,16 @@ celcius_to_farenheit <- function(x){
 Name argument and intermediate variables
 
 ```{r}
-celcius_to_farenheit <- function(celcius){
-  farenheit <- (celcius * 9/5) + 32
-  farenheit
+celcius_to_fahrenheit <- function(celcius){
+  fahrenheit <- (celcius * 9/5) + 32
+  fahrenheit
 }
 ```
 
 ## What makes functions **hard**?
 
 ```{r}
-celcius_to_farenheit <- function(celcius){
+celcius_to_fahrenheit <- function(celcius){
   (celcius * 9/5) + 32
 }
 ```
@@ -786,7 +785,7 @@ Memory is not limited by bits, but by **chunks**
 So practice breaking code into **chunks**
 
 ::: notes
-celcius to farenheit: boom. done.
+celcius to fahrenheit: boom. done.
 
 The idea of inputs and outputs isn't hard.
 
